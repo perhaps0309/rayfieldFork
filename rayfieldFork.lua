@@ -2539,12 +2539,16 @@ function RayfieldLibrary:CreateWindow(Settings)
 		-- Paragraph
 		function Tab:CreateParagraph(ParagraphSettings)
 			local ParagraphValue = {}
+			local richText = ParagraphSettings.RichText or false
 
 			local Paragraph = Elements.Template.Paragraph:Clone()
 			Paragraph.Title.Text = ParagraphSettings.Title
 			Paragraph.Content.Text = ParagraphSettings.Content
 			Paragraph.Visible = true
 			Paragraph.Parent = TabPage
+
+			Paragraph.Title.RichText = richText
+			Paragraph.Content.RichText = richText
 
 			Paragraph.BackgroundTransparency = 1
 			Paragraph.UIStroke.Transparency = 1
